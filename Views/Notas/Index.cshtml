@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MvcCRUD.Models.Nota>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <td>No</td>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMateriaAlumnoNavigation.IdAlumnoNavigation.Carnet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMateriaAlumnoNavigation.IdAlumnoNavigation.Nombres) y
+                @Html.DisplayNameFor(model => model.IdMateriaAlumnoNavigation.IdAlumnoNavigation.Apellidos)
+            </th>
+            <th> @Html.DisplayNameFor(model => model.Parcial_I)</th>
+            <th>  @Html.DisplayNameFor(model => model.Parcial_II) </th>
+            <th>   @Html.DisplayNameFor(model => model.Sistematicos)</th>
+            <th>   @Html.DisplayNameFor(model => model.NotaFinal) </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.IdNota )</td>
+            <td>@Html.DisplayFor(modelItem => item.IdMateriaAlumnoNavigation.IdAlumnoNavigation.Carnet)</td>
+
+            <td>@Html.DisplayFor(modelItem => item.IdMateriaAlumnoNavigation.IdAlumnoNavigation.Nombres) 
+            @Html.DisplayFor(modelItem => item.IdMateriaAlumnoNavigation.IdAlumnoNavigation.Apellidos)</td>
+            <td>@Html.DisplayFor(modelItem => item.Parcial_I)</td>
+            <td>@Html.DisplayFor(modelItem => item.Parcial_II)</td>
+            <td>@Html.DisplayFor(modelItem => item.Sistematicos)</td>
+            <td>@Html.DisplayFor(modelItem => item.NotaFinal)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdNota">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdNota">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdNota">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MvcCRUD.Models.AlumnoMaterium>
+ 
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              Carnet
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAlumnoNavigation.Nombres) y @Html.DisplayNameFor(model => model.IdAlumnoNavigation.Apellidos)
+            </th>
+            <th>
+                Materia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAlumnoNavigation.Carnet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAlumnoNavigation.Nombres)  @Html.DisplayFor(modelItem => item.IdAlumnoNavigation.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMateriaNavigation.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAlumnoMateria">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAlumnoMateria">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAlumnoMateria">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MvcCRUD.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Carnet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carnet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEstudiante">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEstudiante">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEstudiante">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
